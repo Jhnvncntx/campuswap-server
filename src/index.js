@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import listingRoutes from './routes/listingRoutes.js';
+import inquiryRoutes from './routes/inquiryRoutes.js';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/listings', listingRoutes);
+app.use('/api/inquiries', inquiryRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'CampuSwap API is running' });
